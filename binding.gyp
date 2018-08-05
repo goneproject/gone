@@ -29,8 +29,8 @@
         ['OS=="mac"', {
             'dependencies':
             [
-              'engine/submodules/angle/src/angle.gyp:libEGL',
-              'engine/submodules/angle/src/angle.gyp:libGLESv2'
+              '<(module_root_dir)/engine/submodules/angle/src/angle.gyp:libEGL',
+              '<(module_root_dir)/engine/submodules/angle/src/angle.gyp:libGLESv2'
             ],
             'libraries': [
                 '-framework QuartzCore',
@@ -40,8 +40,8 @@
         ['OS=="linux"', {
             'dependencies':
             [
-              'engine/submodules/angle/src/angle.gyp:libEGL',
-              'engine/submodules/angle/src/angle.gyp:libGLESv2'
+              '<(module_root_dir)/engine/submodules/angle/src/angle.gyp:libEGL',
+              '<(module_root_dir)/engine/submodules/angle/src/angle.gyp:libGLESv2'
             ]
         }],
         ['OS=="win"', {
