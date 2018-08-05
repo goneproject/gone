@@ -1,4 +1,3 @@
-
 [submodule "engine/submodules/angle"]
 	path = engine/submodules/angle
 	url = https://github.com/google/angle.git
