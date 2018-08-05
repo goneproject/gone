@@ -1,0 +1,62 @@
+{
+  "name": "node-gpu",
+  "version": "1.0.0",
+  "description": "Perform massive parallel computations in Node.js with GPGPU.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npm run subcompile-es6 && npm run subcompile-cpp",
+    "subcompile-es6": "rm -rf lib && babel bin -d lib",
+    "subcompile-cpp": "prebuild-install || node-gyp rebuild",
+    "prebuild": "prebuild --t 4.6.1 --strip",
+    "rebuild": "node-gyp rebuild --verbose",
+    "test": "standard | snazzy && tape test/*.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robin-rpr/node-gpu.git"
+  },
+  "keywords": [
+    "GPGPU",
+    "ML",
+    "Node.js",
+    "GPU",
+    "massive",
+    "parallel",
+    "computations"
+  ],
+  "author": "Robin Roeper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robin-rpr/node-gpu/issues"
+  },
+  "homepage": "https://github.com/robin-rpr/node-gpu#readme",
+  "bundleDependencies": false,
+  "dependencies": {
+    "bindings": "^1.2.1",
+    "bit-twiddle": "^1.0.2",
+    "glsl-tokenizer": "^2.0.2",
+    "nan": "^2.6.2",
+    "node-gyp": "^3.6.2",
+    "prebuild-install": "^2.1.1"
+  },
+  "devDependencies": {
+    "angle-normals": "^1.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.6.1",
+    "bunny": "^1.0.1",
+    "faucet": "0.0.1",
+    "gl-conformance": "^2.0.9",
+    "prebuild": "^7.6.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2",
+    "tape": "^4.7.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "gypfile": true
+}
