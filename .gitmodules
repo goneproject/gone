@@ -1,1 +1,7 @@
 
+[submodule "engine/submodules/angle"]
+	path = engine/submodules/angle
+	url = https://github.com/google/angle.git
+[submodule "engine/submodules/depot_tools"]
+	path = engine/submodules/depot_tools
+	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git

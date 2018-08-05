@@ -4,10 +4,9 @@
   "description": "Perform massive parallel computations in Node.js with GPGPU.",
   "main": "index.js",
   "scripts": {
-    "compile": "npm run subcompile-es6 && npm run subcompile-cpp",
-    "subcompile-es6": "rm -rf lib && babel bin -d lib",
-    "subcompile-cpp": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild --t 4.6.1 --strip",
+    "dev-babel": "rm -rf lib && babel bin -d lib",
+    "dev-bootstrap": "python bootstrap.py",
+    "prebuild": "python bootstrap.py && rm -rf lib && babel bin -d lib && prebuild-install || node-gyp rebuild && prebuild --t 4.6.1 --strip",
     "rebuild": "node-gyp rebuild --verbose",
     "test": "standard | snazzy && tape test/*.js | faucet"
   },
