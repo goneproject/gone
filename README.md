@@ -1,12 +1,12 @@
-# Node-gpu
-
-  [![NPM version][npm-image]][npm-url]
-  [![build status][travis-image]][travis-url]
-  [![npm download][download-image]][download-url]
-
+# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo_dec-save.png" height="70"> 
 Perform massive parallel computations in Node.js with GPGPU.
 
-> **Note:** If you get lost, the [API Documentation](https://robinrpr.github.io/node-gpu/docs) will save you.
+  [![NPM version][npm-image]][npm-url]
+  [![CircleCI Status][circleci-image]][circleci-url]
+  [![NPM DWL Status][download-image]][download-url]
+  [![Known Vulnerabilities][snyc-image]][snyc-url]
+
+> **Status:** This project is still under development and currently does not provide a stable channel.
 
 ## Installation
 
@@ -14,46 +14,19 @@ Perform massive parallel computations in Node.js with GPGPU.
 // npm install node-gpu --save
 ```
 
-#### Node.js:
-```js
-// const gpu = require('node-gpu');
-```
-
-## Open vulnerabilities
-```
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ Moderate      │ Prototype pollution                                          │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ hoek                                                         │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/566                       │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ High          │ Regular Expression Denial of Service                         │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ minimatch                                                    │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/118                       │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ Low           │ Prototype Pollution                                          │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ lodash                                                       │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/577                       │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-```
-
 ## License
 
   [MIT](./LICENSE)
 
 
-[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat
 [npm-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
 
-[travis-image]: https://img.shields.io/travis/robin-rpr/node-gpu/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/robin-rpr/node-gpu
+[circleci-image]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master.svg?style=svg&circle-token=1a155b19b88989f79b3df7d67f4bc5f258aac95c
+[circleci-url]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master
 
-[download-image]: https://img.shields.io/npm/dm/node-gpu.svg?style=flat-square
+[download-image]: https://img.shields.io/npm/dm/node-gpu.svg?style=flat
 [download-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
+
+[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg
+[snyc-url]: https://snyk.io/test/github/robin-rpr/node-gpu
