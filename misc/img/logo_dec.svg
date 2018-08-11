@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1643 500" style="enable-background:new 0 0 1643 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:none;}
+	.st2{font-family:'Roboto-Black';}
+	.st3{font-size:230px;}
+	.st4{font-family:'Roboto-Thin';}
+	.st5{font-family:'Roboto-Light';}
+	.st6{font-size:71px;}
+</style>
+<g>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="17.235" y1="178.9255" x2="485.6012" y2="178.9255">
+		<stop  offset="0" style="stop-color:#FF15CB"/>
+		<stop  offset="1" style="stop-color:#15EEFF"/>
+	</linearGradient>
+	<polygon class="st0" points="132.1,179.2 17.2,108.1 131.7,36.5 251.2,107.6 367.9,36 485.1,107.1 368.4,178.7 485.6,249.8 
+		368.9,321.3 251.7,250.2 132.6,321.8 17.7,250.7 	"/>
+</g>
+<g>
+	<polygon points="132.1,322.1 17.2,251.1 131.7,179.5 251.2,250.6 367.9,179 485.1,250.1 368.4,321.7 485.6,392.8 368.9,464.3 
+		251.7,393.2 132.6,464.8 17.7,393.7 	"/>
+</g>
+<rect x="535" y="112" class="st1" width="1071" height="190"/>
+<text transform="matrix(1 0 0 1 534.9727 284.5)"><tspan x="0" y="0" class="st2 st3">Node</tspan><tspan x="545.2" y="0" class="st4 st3"> GPU</tspan></text>
+<text transform="matrix(1 0 0 1 547.5996 368.877)" class="st5 st6">A NODE.JS GPGPU ENGINE</text>
+</svg>
