@@ -11,7 +11,7 @@ Perform massive parallel computations in Node.js with GPGPU.
 ## Installation
 
 ```
-// npm install node-gpu --save
+$ npm install node-gpu --save
 ```
 
 ## License
