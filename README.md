@@ -11,12 +11,12 @@ Perform massive parallel computations in Node.js with GPGPU.
 ## Installation
 
 ```
-$ npm install node-gpu --save
+$ npm i @robin-rpr/node-gpu --save
 ```
 
 ## License
 
-  [MIT](./LICENSE)
+  [BSD](./LICENSE)
 
 
 [npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat
