@@ -34,7 +34,6 @@
     "bindings": "^1.2.1",
     "bit-twiddle": "^1.0.2",
     "glsl-tokenizer": "^2.0.2",
-    "nan": "^2.6.2",
     "node-gyp": "^3.6.2",
     "prebuild-install": "^2.1.1"
   },
@@ -46,6 +45,7 @@
     "bunny": "^1.0.1",
     "faucet": "0.0.1",
     "gl-conformance": "^2.0.9",
+    "nan": "^2.10.0",
     "prebuild": "^7.6.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
