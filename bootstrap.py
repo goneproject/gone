@@ -16,7 +16,7 @@ import sys
 def main():
     #Export Depot_tools
     cmd = ("export PATH=$PATH:$PWD/engine/submodules/depot_tools "
-           "&& (cd engine/submodules/angle/scripts && python boostrap.py) "
+           "&& (cd engine/submodules/angle/scripts && python bootstrap.py) "
            "&& (cd engine/submodules/angle && gclient sync) "
            "&& (cd engine/submodules/angle && git checkout master) "
            "&& (cd engine/submodules/angle && ./build/install-build-deps.sh) "
