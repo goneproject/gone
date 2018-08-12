@@ -16,12 +16,13 @@ import sys
 def main():
     #Export Depot_tools
     cmd = ("export PATH=$PATH:$PWD/engine/submodules/depot_tools "
-            "&& (cd engine/submodules/angle && python scripts/bootstrap.py) "
-            "&& (cd engine/submodules/angle && gclient sync) "
-            "&& (cd engine/submodules/angle && git checkout master) "
-            "&& (cd engine/submodules/angle && GYP_GENERATORS=ninja gclient runhooks) "
-            "&& (cd engine/submodules/angle && mkdir -p out/Debug) "
-            "&& (cd engine/submodules/angle && ninja -j 10 -k1 -C out/Debug)")
+           "&& (cd engine/submodules/angle && python scripts/bootstrap.py) "
+           "&& (cd engine/submodules/angle && gclient sync) "
+           "&& (cd engine/submodules/angle && git checkout master) "
+           "&& (cd engine/submodules/angle && ./build/install-build-deps.sh) "
+           "&& (cd engine/submodules/angle && GYP_GENERATORS=ninja gclient runhooks) "
+           "&& (cd engine/submodules/angle && mkdir -p out/Debug) "
+           "&& (cd engine/submodules/angle && ninja -j 10 -k1 -C out/Debug)")
 
         #('cd $PWD/../../engine/submodules/angle '
           # '&& ./../depot_tools/gclient config --name change2dot --unmanaged https://chromium.googlesource.com/angle/angle.git '
