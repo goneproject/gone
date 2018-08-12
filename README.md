@@ -10,8 +10,16 @@ Perform massive parallel computations in Node.js with GPGPU.
 
 ## Installation
 
+### NPM
 ```
 $ npm i @robin-rpr/node-gpu --save
+```
+
+## Development Setup
+```bash
+$ git clone --recurse-submodules -j8 git://github.com/robin-rpr/node-gpu.git
+$ cd node-gpu
+$ yarn run prebuild
 ```
 
 ## License
