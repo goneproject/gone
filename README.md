@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo_dec-save.png" height="70"> 
+# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo_dec-saveV2.png" height="70"> 
 Perform massive parallel computations in Node.js with GPGPU.
 
   [![NPM version][npm-image]][npm-url]
