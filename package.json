@@ -7,6 +7,7 @@
     "dev-babel": "rm -rf lib && babel bin -d lib",
     "dev-bootstrap": "python bootstrap.py",
     "prebuild": "python bootstrap.py && rm -rf lib && babel bin -d lib && prebuild-install || node-gyp rebuild && prebuild --t 4.6.1 --strip",
+    "setup": "python bootstrap.py && rm -rf lib && babel bin -d lib && node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/node-gpu/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config && node-gyp build",
     "rebuild": "node-gyp rebuild --verbose",
     "test": "standard | snazzy && tape test/*.js | faucet"
   },
