@@ -24,7 +24,7 @@ On all platforms:
 - We use Git for version control (version 2.11.0 or later.)
 
 On Linux:
-- Libraries: g++-6-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf
+- Required libraries: g++-6-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, xserver-xorg-dev, libxext-dev, libxi-dev, libpci-dev
 
 ## Development Setup
 
