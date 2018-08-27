@@ -17,11 +17,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/so
 
 RUN apt-get update && apt-get install nodejs yarn
 
-# INFO
-RUN echo - NODE-GPU VERSION:
-RUN node -p "require('./package.json').version"
-
-RUN echo - OS RELEASE FILE:
+# OS INFO
 RUN cat /etc/os-release
 
 # CHECK VERSION
