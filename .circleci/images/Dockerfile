@@ -33,7 +33,7 @@ RUN apt-get install -y g++-6-arm-linux-gnueabihf gcc-arm-linux-gnueabihf gcc-arm
 RUN export PATH=$PATH:$PWD/engine/submodules/depot_tools
 
 # BOOTSTRAP ANGLE
-RUN cd engine/submodules/angle
+RUN cd ../engine/submodules/angle
 RUN python scripts/bootstrap.py
 RUN gclient sync
 RUN git checkout master
