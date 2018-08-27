@@ -4,13 +4,6 @@
 
 FROM debian:latest
 
-# INFO
-RUN echo - NODE-GPU VERSION:
-RUN node -p "require('./package.json').version"
-
-RUN echo - OS RELEASE FILE:
-RUN cat /etc/os-release
-
 # SWITCH TO USER ROOT
 USER root
 
@@ -21,6 +14,13 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 RUN sudo apt-get update && apt-get install -y git ssh tar gzip ca-certificates python sudo nodejs yarn
+
+# INFO
+RUN echo - NODE-GPU VERSION:
+RUN node -p "require('./package.json').version"
+
+RUN echo - OS RELEASE FILE:
+RUN cat /etc/os-release
 
 # CHECK VERSION
 RUN git --version
