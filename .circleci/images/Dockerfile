@@ -8,7 +8,7 @@ FROM debian:latest
 USER root
 
 # ENSURE GPP (GENERAL PURPOSE PACKAGES) AVAILABILITY
-RUN apt-get update && apt-get install -y git ssh tar gzip ca-certificates python sudo
+RUN apt-get update && apt-get install -y git ssh tar gzip curl ca-certificates python sudo apt-utils
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
