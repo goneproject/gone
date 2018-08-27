@@ -48,7 +48,7 @@ RUN ninja -j 10 -k1 -C out/Debug
 RUN node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/node-gpu/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config
 
 # BUILD NODE-GPU
-node-gyp build
+RUN node-gyp build
 
 # BABEL COMPILE ES6
 RUN babel bin -d lib
