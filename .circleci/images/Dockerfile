@@ -24,20 +24,24 @@ RUN cat /etc/os-release
 RUN git --version
 
 # CLONE PROJECT
-RUN git clone --recurse-submodules -j8 https://github.com/robin-rpr/node-gpu.git && cd node-gpu
+RUN git clone --recurse-submodules -j8 https://github.com/robin-rpr/node-gpu.git
+ENV APP_PATH node-gpu
+WORKDIR $APP_PATH
 
 # INSTALL NODE-GPU DEPENDENCIES
 RUN apt-get install -y g++-6-arm-linux-gnueabihf gcc-arm-linux-gnueabihf gcc-arm-linux-gnueabihf xserver-xorg-dev libxext-dev libxi-dev libpci-dev
 
-# EXPORT GOOGLE DEPOT_TOOLS
-RUN export PATH=$PATH:$PWD/engine/submodules/depot_tools
+# EXPORT DEPOT_TOOLS
+ENV PATH="${PATH}:../depot_tools"
 
 # BOOTSTRAP ANGLE
-RUN cd engine/submodules/angle
+WORKDIR engine/submodules/angle
+RUN echo $PATH
+RUN echo $PWD
 RUN python scripts/bootstrap.py
 RUN gclient sync
 RUN git checkout master
-RUN ./build/install-build-deps.sh
+RUN ./build/install-build-deps.sh --syms --lib32 --arm --chromeos-fonts --nacl
 RUN GYP_GENERATORS=ninja gclient runhooks
 RUN mkdir -p out/Debug
 RUN ninja -j 10 -k1 -C out/Debug
