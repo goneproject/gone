@@ -84,15 +84,16 @@ echo ".ci/config/${CONFIG_NAME}.yml" >> .gitignore;
 echo -e "${JOB_CLR}[JOB] Writing config file..."
 echo "---" >> .ci/config/${CONFIG_NAME}.yml;
 echo "# AUTOMATICALLY GENERATED CONCORUSE CI PIPELINE CONFIG" >> .ci/config/${CONFIG_NAME}.yml;
-echo "docker-hub:" >> .ci/config/${CONFIG_NAME}.yml;
-echo "  - username: ${DOCKERHUB_USERNAME}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    password: ${DOCKERHUB_PASSWORD}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    repository: ${DOCKERHUB_REPOSITORY}" >> .ci/config/${CONFIG_NAME}.yml;
+echo '"docker_hub:"' >> .ci/config/${CONFIG_NAME}.yml;
+echo '  - "username": ${DOCKERHUB_USERNAME}' >> .ci/config/${CONFIG_NAME}.yml;
+echo '    "email": ${DOCKERHUB_EMAIL}' >> .ci/config/${CONFIG_NAME}.yml;
+echo '    "password": ${DOCKERHUB_PASSWORD}' >> .ci/config/${CONFIG_NAME}.yml;
+echo '    "repository": ${DOCKERHUB_REPOSITORY}' >> .ci/config/${CONFIG_NAME}.yml;
 
 
 if type fly &>/dev/null; then
   echo -e "${JOB_CLR}[JOB] Set Pipeline...${RESET_CLR}";
-  fly set-pipeline node-gpu --vars-from .ci/config/${CONFIG_NAME}.yml -c .ci/pipeline.yml
+  fly -t concourse set-pipeline --pipeline node-gpu --vars-from .ci/config/${CONFIG_NAME}.yml --config .ci/pipeline.yml
 fi;
 
 echo -e "${RESET_CLR}\n... Done!\n"; 
