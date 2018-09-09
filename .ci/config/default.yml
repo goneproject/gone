@@ -8,8 +8,7 @@
 # -------- CAUTION: DO NOT COMMIT!1 --------
 
 docker-hub:
-  - email: example@example.com
-    username: exampl
+  - username: example
     password: example
     repository: example
 
