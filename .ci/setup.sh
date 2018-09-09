@@ -84,11 +84,11 @@ echo ".ci/config/${CONFIG_NAME}.yml" >> .gitignore;
 echo -e "${JOB_CLR}[JOB] Writing config file..."
 echo "---" >> .ci/config/${CONFIG_NAME}.yml;
 echo "# AUTOMATICALLY GENERATED CONCORUSE CI PIPELINE CONFIG" >> .ci/config/${CONFIG_NAME}.yml;
-echo "docker_hub:" >> .ci/config/${CONFIG_NAME}.yml;
-echo "  - username: ${DOCKERHUB_USERNAME}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    email: ${DOCKERHUB_EMAIL}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    password: ${DOCKERHUB_PASSWORD}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    repository: ${DOCKERHUB_REPOSITORY}" >> .ci/config/${CONFIG_NAME}.yml;
+echo "\"docker_hub\":" >> .ci/config/${CONFIG_NAME}.yml;
+echo "  - \"username\": ${DOCKERHUB_USERNAME}" >> .ci/config/${CONFIG_NAME}.yml;
+echo "    \"email\": ${DOCKERHUB_EMAIL}" >> .ci/config/${CONFIG_NAME}.yml;
+echo "    \"password\": ${DOCKERHUB_PASSWORD}" >> .ci/config/${CONFIG_NAME}.yml;
+echo "    \"repository\": ${DOCKERHUB_REPOSITORY}" >> .ci/config/${CONFIG_NAME}.yml;
 
 
 if type fly &>/dev/null; then
