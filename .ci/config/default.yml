@@ -1,0 +1,7 @@
+---
+# CONFIG FILE FOR CONCOURSE CI PIPELINE
+docker-hub:
+  - email: example@example.com
+    username: example
+    password: example
+    repository: example
