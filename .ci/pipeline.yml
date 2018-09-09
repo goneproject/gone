@@ -1,0 +1,31 @@
+---
+# INCLUDE DEFAULT CONFIG
+include_vars:
+    dir: config
+    files_matching: default.yml
+
+jobs:
+- name: build-docker-image
+  public: true
+  serial: true
+  plan:
+  - get: node-gpu
+    trigger: true
+  - put: docker-image
+    params:
+      build: node-gpu/.ci/docker
+
+resources:
+- name: node-gpu
+  type: git
+  source:
+    uri: https://github.com/node-gpu/node-gpu.git
+    branch: dev
+
+- name: docker-image
+  type: docker-image
+  source:
+    email: {{docker-hub.email}}
+    username: {{docker-hub.username}}
+    password: {{docker-hub.password}}
+    repository: {{docker-hub.repository}}
