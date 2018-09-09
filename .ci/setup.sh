@@ -93,7 +93,7 @@ echo '    "repository": ${DOCKERHUB_REPOSITORY}' >> .ci/config/${CONFIG_NAME}.ym
 
 if type fly &>/dev/null; then
   echo -e "${JOB_CLR}[JOB] Set Pipeline...${RESET_CLR}";
-  fly -t concourse set-pipeline --pipeline node-gpu --vars-from .ci/config/${CONFIG_NAME}.yml --config .ci/pipeline.yml
+  fly -t ${CI_PROJECT_ID} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml
 fi;
 
 echo -e "${RESET_CLR}\n... Done!\n"; 
