@@ -1,9 +1,4 @@
 ---
-# INCLUDE DEFAULT CONFIG
-include_vars:
-    dir: config
-    files_matching: default.yml
-
 jobs:
 - name: build-docker-image
   public: true
@@ -25,7 +20,7 @@ resources:
 - name: docker-image
   type: docker-image
   source:
-    email: {{docker-hub.email}}
-    username: {{docker-hub.username}}
-    password: {{docker-hub.password}}
-    repository: {{docker-hub.repository}}
+    email: {{ docker_hub.email }}
+    username: {{ docker_hub.username }}
+    password: {{ docker_hub.password }}
+    repository: {{ docker_hub.repository }}
