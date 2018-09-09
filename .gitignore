@@ -4,5 +4,3 @@ node_modules
 engine/src/.idea
 .ci/config/*
 .DS_Store
-
-.ci/config/df.yml
