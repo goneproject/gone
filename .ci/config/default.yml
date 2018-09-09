@@ -1,7 +1,17 @@
 ---
 # CONFIG FILE FOR CONCOURSE CI PIPELINE
+
+# -------- CAUTION: DO NOT COMMIT!1 --------
+#   THIS FILE IS NOT LISTED IN .gitignore!
+#    USE default.yml AS AN EXAMPLE OR ADD 
+#      IT TO .gitignore BEFORE PUSHING!
+# -------- CAUTION: DO NOT COMMIT!1 --------
+
 docker-hub:
   - email: example@example.com
-    username: example
+    username: exampl
     password: example
     repository: example
+
+git:
+  - private_key: MY_SECRET_PRIVATE_KEY
