@@ -15,6 +15,9 @@
 # After generating the Pipeline Config a new CI Pipeline is setup via fly CLI
 # To lean more about Concourse Fly CLI visit: https://concourse-ci.org/fly.html
 
+# Exit when any command fails
+set -e
+
 # SET GLOBAL VARIABLES
 INTEND="    ";
 SUB_INTEND="     ⮑  ";
