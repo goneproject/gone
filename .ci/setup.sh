@@ -80,7 +80,7 @@ read -sp "${SUB_INTEND}Password: " DOCKERHUB_PASSWORD;
 echo -e "\n\n${INTEND}${RESET_CLR}Configure Pipeline:";
 echo -e -n "${STDIN_CLR}";
 read -p "${SUB_INTEND}New DockerHub Repository Name: " DOCKERHUB_REPOSITORY;
-read -p "${SUB_INTEND}Concourse Team [e.g. main]: " CONCOURSE_TEAM;
+read -p "${SUB_INTEND}Concourse Target [e.g. myConcourse]: " CONCOURSE_TARGET;
 
 echo -e "\n${JOB_CLR}[JOB] Update .gitignore...";
 echo ".ci/config/${CONFIG_NAME}.yml" >> .gitignore;
@@ -100,11 +100,11 @@ if type fly &>/dev/null; then
   fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml
 
   echo -e "${JOB_CLR}[JOB] Set Pipeline...${RESET_CLR}";
-  fly -t ${CONCOURSE_TEAM} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml
+  fly -t ${CONCOURSE_TARGET} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml
 else
   echo -e "${RESET_CLR}\nSkipping Fly Pipeline Setup! Please install Fly CLI and run the following commands manually:";
   echo -e "${INTEND}$ fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml";
-  echo -e "${INTEND}$ fly -t ${CONCOURSE_TEAM} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml";
+  echo -e "${INTEND}$ fly -t ${CONCOURSE_TARGET} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml";
 fi;
 
 echo -e "${RESET_CLR}\n... Done!\n";
