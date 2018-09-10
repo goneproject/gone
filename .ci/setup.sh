@@ -100,7 +100,7 @@ if type fly &>/dev/null; then
   fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml
 
   echo -e "${JOB_CLR}[JOB] Set Pipeline...${RESET_CLR}";
-  fly -t ${CI_PROJECT_ID} set-pipeline --pipeline node-gpu --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml
+  fly -t ${CONCOURSE_TEAM} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml
 else
   echo -e "${RESET_CLR}\nSkipping Fly Pipeline Setup! Please install Fly CLI and run the following commands manually:";
   echo -e "${INTEND}$ fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml";
