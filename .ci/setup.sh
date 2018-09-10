@@ -27,9 +27,10 @@ LINK_CLR='\033[4;36m\033[1;36m';
 WARN_CLR='\033[0;35m';
 JOB_CLR='\033[0;34m';
 
+echo -e ${RESET_CLR}
 cat misc/asc/ci-setup/ci-setup.asc
 
-echo -e "\nWelcome to the (Unofficial) Concourse CI Pipeline Wizard!\n";
+echo -e "\nWelcome to the Node-GPU Concourse CI Pipeline Wizard!\n";
 echo -e "This Script will setup a 'node-gpu' Pipeline.\nhttps://concourse-ci.org/index.html\n";
 
 # Check if in Git env
@@ -49,7 +50,7 @@ fi;
 
 echo -e "${INTEND}${RESET_CLR}Setup Script Configuration:";
 echo -e -n "${STDIN_CLR}";
-read -p "${SUB_INTEND}Enter a desired config name: " CONFIG_NAME;
+read -p "${SUB_INTEND}Enter a new config name: " CONFIG_NAME;
 
 if [ -f ".ci/config/${CONFIG_NAME}.yml" ]; then
   read -p "${SUB_INTEND}Config already exist! Remove config? [yes/no]: " OVERWRITE;
@@ -92,10 +93,17 @@ echo "    \"repository\": ${DOCKERHUB_REPOSITORY}" >> .ci/config/${CONFIG_NAME}.
 
 
 if type fly &>/dev/null; then
+  echo -e "${JOB_CLR}[JOB] Validating Pipeline...${RESET_CLR}";
+  fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml
+
   echo -e "${JOB_CLR}[JOB] Set Pipeline...${RESET_CLR}";
-  fly -t ${CI_PROJECT_ID} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml
+  fly -t ${CI_PROJECT_ID} set-pipeline --pipeline node-gpu --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml
+else
+  echo -e "${RESET_CLR}\nSkipping Fly Pipeline Setup! Please install Fly CLI and run the following commands manually:";
+  echo -e "${INTEND}$ fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml";
+  echo -e "${INTEND}$ fly -t ${CI_PROJECT_ID} set-pipeline --pipeline node-gpu --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml";
 fi;
 
-echo -e "${RESET_CLR}\n... Done!\n"; 
+echo -e "${RESET_CLR}\n... Done!\n";
 
 exit 0;

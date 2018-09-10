@@ -20,7 +20,7 @@ resources:
 - name: docker-image
   type: docker-image
   source:
-    email: {{ docker_hub.email }}
-    username: {{ docker_hub.username }}
-    password: {{ docker_hub.password }}
-    repository: {{ docker_hub.repository }}
+    email: ((docker_hub.email))
+    username: ((docker_hub.username))
+    password: ((docker_hub.password))
+    repository: ((docker_hub.repository))
