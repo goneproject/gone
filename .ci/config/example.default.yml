@@ -1,0 +1,6 @@
+---
+"docker_hub":
+    "username": jondoe
+    "email": jondoe@foobar.com
+    "password": mySuperSecretPassword
+    "repository": jondoe/foobar

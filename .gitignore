@@ -2,6 +2,5 @@
 build
 node_modules
 engine/src/.idea
-.ci/config/*
-!.ci/config/.empty
 .DS_Store
+.ci/config/default.yml
