@@ -4,16 +4,8 @@
 #  Use of this source code is governed by a BSD-style license that can be
 #  found in the LICENSE file.
 
-# Creates a new Pipeline Config and stores it inside the config directroy:
-#     cd <project_root>/.ci/config/
-#     cat *.yml
-# 
-# The generated file will be automatically added to the .gitignore file.
-# Verify the .gitignore file before pushing or committing to your Repo:
-#     cat <project_root>/.gitignore
-#
-# After generating the Pipeline Config a new CI Pipeline is setup via fly CLI
-# To lean more about Concourse Fly CLI visit: https://concourse-ci.org/fly.html
+# Detailed instructions for this script can be found in the README:
+#      <project_root>/.ci/README.md
 
 # Exit when any command fails
 set -e
