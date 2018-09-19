@@ -18,95 +18,75 @@
 # Exit when any command fails
 set -e
 
-# SET GLOBAL VARIABLES
-INTEND="    ";
-SUB_INTEND="     ⮑  ";
-
+# SET COLOR VARIABLES
 RESET_CLR='\033[0m';
-STDIN_CLR='\033[0;33m';
 ERROR_CLR='\033[0;31m';
 SUCCESS_CLR='\033[0;32m';
 LINK_CLR='\033[4;36m\033[1;36m';
 WARN_CLR='\033[0;35m';
 JOB_CLR='\033[0;34m';
 
-echo -e ${RESET_CLR}
-cat misc/asc/ci-setup/ci-setup.asc
+# CONFIGURATION
+SETUP_CONFIG="default.yml";
+PIPELINE_CONFIG="pipeline.yml";
+PIPELINE_NAME="node-gpu";
 
-echo -e "\nWelcome to the Node-GPU Concourse CI Pipeline Wizard!\n";
-echo -e "This Script will setup a 'node-gpu' Pipeline.\nhttps://concourse-ci.org/index.html\n";
-
-# Check if in Git env
+# Check Git environment
 if [ -d .git ]; then
   echo -e "${SUCCESS_CLR}➜ [OK] Detected valid Git environment!";
 else
-  echo -e "${ERROR_CLR}➜ [ERROR] This script can only be executed inside a Git environment... Exiting graceful!\n";
-  exit 0
+  echo -e "${ERROR_CLR}➜ [ERROR] Invalid Git envirnonment!";
+  exit 1;
 fi;
 
 # Check if Fly CLI is installed
 if type fly &>/dev/null; then
-  echo -e "${SUCCESS_CLR}➜ [OK] Detected Fly CLI!\n";
+  echo -e "${SUCCESS_CLR}➜ [OK] Detected Fly CLI!";
 else
-  echo -e "${WARN_CLR}➜ [WARNING] This script requires Fly CLI to setup pipelines... https://concourse-ci.org/fly.html\n";
+  echo -e "${ERROR_CLR}➜ [ERROR] This script requires Fly CLI to setup pipelines... https://concourse-ci.org/fly.html\n";
+  exit 1;
 fi;
 
-echo -e "${INTEND}${RESET_CLR}Setup Script Configuration:";
-echo -e -n "${STDIN_CLR}";
-read -p "${SUB_INTEND}Enter a new config name: " CONFIG_NAME;
-
-if [ -f ".ci/config/${CONFIG_NAME}.yml" ]; then
-  read -p "${SUB_INTEND}Config already exist! Remove config? [yes/no]: " OVERWRITE;
-  echo -e "\n${JOB_CLR}[JOB] Remove old config file...";
-  rm -rf ".ci/config/${CONFIG_NAME}.yml";
-
-  if [ "$OVERWRITE" == "no" ]; then 
-    echo -e "\n${ERROR_CLR}➜ [ERROR] Exiting graceful!\n";
-    exit 0
-  else
-    if [ "$OVERWRITE" != "yes" ]; then 
-      echo -e "\n${ERROR_CLR}➜ [ERROR] Invalid input... exiting :,(\n";
-      exit 1;
-    fi; 
-  fi;
-fi;
-
-echo -e "\n${INTEND}${RESET_CLR}Please enter your ${LINK_CLR}https://hub.docker.com/${RESET_CLR} credentials:";
-echo -e -n "${STDIN_CLR}";
-read -ep "${SUB_INTEND}E-mail: " DOCKERHUB_EMAIL;
-read -ep "${SUB_INTEND}Username: " DOCKERHUB_USERNAME;
-read -sp "${SUB_INTEND}Password: " DOCKERHUB_PASSWORD;
-
-echo -e "\n\n${INTEND}${RESET_CLR}Configure Pipeline:";
-echo -e -n "${STDIN_CLR}";
-read -p "${SUB_INTEND}New DockerHub Repository Name: " DOCKERHUB_REPOSITORY;
-read -p "${SUB_INTEND}Concourse Target [e.g. myConcourse]: " CONCOURSE_TARGET;
-
-echo -e "\n${JOB_CLR}[JOB] Update .gitignore...";
-echo ".ci/config/${CONFIG_NAME}.yml" >> .gitignore;
-
-echo -e "${JOB_CLR}[JOB] Writing config file..."
-echo "---" >> .ci/config/${CONFIG_NAME}.yml;
-echo "# AUTOMATICALLY GENERATED CONCORUSE CI PIPELINE CONFIG" >> .ci/config/${CONFIG_NAME}.yml;
-echo "\"docker_hub\":" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    \"username\": ${DOCKERHUB_USERNAME}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    \"email\": ${DOCKERHUB_EMAIL}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    \"password\": ${DOCKERHUB_PASSWORD}" >> .ci/config/${CONFIG_NAME}.yml;
-echo "    \"repository\": ${DOCKERHUB_REPOSITORY}" >> .ci/config/${CONFIG_NAME}.yml;
-
-
-if type fly &>/dev/null; then
-  echo -e "${JOB_CLR}[JOB] Validating Pipeline...${RESET_CLR}";
-  fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml
-
-  echo -e "${JOB_CLR}[JOB] Set Pipeline...${RESET_CLR}";
-  fly -t ${CONCOURSE_TARGET} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml
+# Check if setup config file is available
+if [ -f ".ci/config/${SETUP_CONFIG}" ]; then
+  echo -e "${SUCCESS_CLR}➜ [OK] Detected ${SETUP_CONFIG}";
 else
-  echo -e "${RESET_CLR}\nSkipping Fly Pipeline Setup! Please install Fly CLI and run the following commands manually:";
-  echo -e "${INTEND}$ fly validate-pipeline --config .ci/pipeline.yml --load-vars-from .ci/config/${CONFIG_NAME}.yml";
-  echo -e "${INTEND}$ fly -t ${CONCOURSE_TARGET} set-pipeline -p node-gpu -c .ci/pipeline.yml -l .ci/config/${CONFIG_NAME}.yml";
+  echo -e "${ERROR_CLR}➜ [ERROR] Config ${SETUP_CONFIG} NOT FOUND!";
+  exit 1;
 fi;
 
+# Check if pipeline config file is available
+if [ -f ".ci/${PIPELINE_CONFIG}" ]; then
+  echo -e "${SUCCESS_CLR}➜ [OK] Detected ${PIPELINE_CONFIG}";
+else
+  echo -e "${ERROR_CLR}➜ [ERROR] Config ${PIPELINE_CONFIG} NOT FOUND!";
+  exit 1;
+fi;
+
+
+# Login
+echo -e "\n${RESET_CLR}Login to Concouse CI:";
+read -p "- Host address: " CONCOURSE_URL;
+read -p "- Target name: " CONCOURSE_TARGET;
+read -p "- Local username: " CONCOURSE_USERNAME;
+read -sp "- Local password: " CONCOURSE_SECRET;
+echo -e "\n";
+
+# Run jobs
+echo -e "${JOB_CLR}[JOB] Removing existing targets ...${RESET_CLR}";
+fly logout -a # https://github.com/concourse/concourse/issues/2582 Hotfix
+
+echo -e "${JOB_CLR}[JOB] Login to new target ...${RESET_CLR}";
+fly -t ${CONCOURSE_TARGET} login -c ${CONCOURSE_URL} -u ${CONCOURSE_USERNAME} -p ${CONCOURSE_SECRET}
+
+echo -e "${JOB_CLR}[JOB] Validating ${PIPELINE_CONFIG} ...${RESET_CLR}";
+fly validate-pipeline --config .ci/${PIPELINE_CONFIG} --load-vars-from .ci/config/${SETUP_CONFIG}
+
+echo -e "${JOB_CLR}[JOB] Set Pipeline ...${RESET_CLR}";
+fly -t ${CONCOURSE_TARGET} set-pipeline -p ${PIPELINE_NAME} -c .ci/${PIPELINE_CONFIG} -l .ci/config/${SETUP_CONFIG} --non-interactive
+
+
+# Exit
 echo -e "${RESET_CLR}\n... Done!\n";
 
 exit 0;
