@@ -1,5 +1,7 @@
-# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo.png" height="80"> 
-Perform massive parallel computations in Node.js with GPGPU.
+# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/goneproject_logo.png" height="80"> 
+A GPU optimized NodeJS engine.
+
+> Perform massive parallel computations in Node.js with GPGPU.
 
   [![NPM version][npm-image]][npm-url]
   [![CircleCI Status][circleci-image]][circleci-url]
