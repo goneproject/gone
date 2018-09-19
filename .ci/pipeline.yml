@@ -4,23 +4,22 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: node-gpu
+  - get: goneproject
     trigger: true
   - put: docker-image
     params:
-      build: node-gpu/.ci/docker
+      build: engine/.ci/docker
 
 resources:
-- name: node-gpu
+- name: goneproject
   type: git
   source:
-    uri: https://github.com/node-gpu/node-gpu.git
+    uri: https://github.com/GONEproject/engine.git
     branch: dev
 
 - name: docker-image
   type: docker-image
   source:
-    email: ((docker_hub.email))
     username: ((docker_hub.username))
     password: ((docker_hub.password))
     repository: ((docker_hub.repository))

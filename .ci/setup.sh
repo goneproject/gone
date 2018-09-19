@@ -29,7 +29,8 @@ JOB_CLR='\033[0;34m';
 # CONFIGURATION
 SETUP_CONFIG="default.yml";
 PIPELINE_CONFIG="pipeline.yml";
-PIPELINE_NAME="node-gpu";
+PIPELINE_NAME="goneproject";
+TEAM_NAME="goneproject";
 
 # Check Git environment
 if [ -d .git ]; then
@@ -63,21 +64,26 @@ else
   exit 1;
 fi;
 
-
 # Login
 echo -e "\n${RESET_CLR}Login to Concouse CI:";
 read -p "- Host address: " CONCOURSE_URL;
 read -p "- Target name: " CONCOURSE_TARGET;
-read -p "- Local username: " CONCOURSE_USERNAME;
-read -sp "- Local password: " CONCOURSE_SECRET;
-echo -e "\n";
+read -p "- Local username (for ${CONCOURSE_TARGET}): " CONCOURSE_USERNAME;
+read -sp "- Local password (for ${CONCOURSE_USERNAME}): " CONCOURSE_SECRET;
+echo -e "\n"
 
 # Run jobs
 echo -e "${JOB_CLR}[JOB] Removing existing targets ...${RESET_CLR}";
 fly logout -a # https://github.com/concourse/concourse/issues/2582 Hotfix
 
+echo -e "${JOB_CLR}[JOB] Sync Fly with ${CONCOURSE_TARGET} ...${RESET_CLR}";
+fly -t ${CONCOURSE_TARGET} sync
+
+echo -e "${JOB_CLR}[JOB] Set ${TEAM_NAME} team ...${RESET_CLR}";
+fly -t ${CONCOURSE_TARGET} set-team --team-name ${TEAM_NAME} --local-user=${CONCOURSE_USERNAME}
+
 echo -e "${JOB_CLR}[JOB] Login to new target ...${RESET_CLR}";
-fly -t ${CONCOURSE_TARGET} login -c ${CONCOURSE_URL} -u ${CONCOURSE_USERNAME} -p ${CONCOURSE_SECRET}
+fly -t ${CONCOURSE_TARGET} login -c ${CONCOURSE_URL} -u ${CONCOURSE_USERNAME} -p ${CONCOURSE_SECRET} -n ${TEAM_NAME}
 
 echo -e "${JOB_CLR}[JOB] Validating ${PIPELINE_CONFIG} ...${RESET_CLR}";
 fly validate-pipeline --config .ci/${PIPELINE_CONFIG} --load-vars-from .ci/config/${SETUP_CONFIG}
