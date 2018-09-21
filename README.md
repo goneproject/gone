@@ -1,10 +1,9 @@
-# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/goneproject_logo.png" height="80"> 
+# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/goneproject_logo--dark.png" height="80"> 
 A GPU optimized NodeJS engine.
 
 > Perform massive parallel computations in Node.js with GPGPU.
 
   [![NPM version][npm-image]][npm-url]
-  [![CircleCI Status][circleci-image]][circleci-url]
   [![NPM DWL Status][download-image]][download-url]
   [![Known Vulnerabilities][snyc-image]][snyc-url]
 
@@ -32,7 +31,7 @@ On Linux:
 
 ### Getting the source
 ```bash
-$ git clone --recurse-submodules -j8 https://github.com/robin-rpr/node-gpu.git
+$ git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git
 $ cd node-gpu
 $ yarn install
 $ yarn run prebuild
@@ -40,7 +39,7 @@ $ yarn run prebuild
 
 ### NPM
 ```
-$ npm i @robin-rpr/node-gpu --save
+$ npm i gone --save
 ```
 
 ## License
@@ -50,9 +49,6 @@ $ npm i @robin-rpr/node-gpu --save
 
 [npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat
 [npm-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
-
-[circleci-image]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master.svg?style=svg&circle-token=1a155b19b88989f79b3df7d67f4bc5f258aac95c
-[circleci-url]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master
 
 [download-image]: https://img.shields.io/npm/dm/node-gpu.svg?style=flat
 [download-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
