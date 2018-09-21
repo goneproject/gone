@@ -46,6 +46,7 @@
     "bunny": "^1.0.1",
     "faucet": "0.0.1",
     "gl-conformance": "^2.0.9",
+    "jshint": "^2.9.6",
     "nan": "^2.10.0",
     "prebuild": "^7.6.0",
     "snazzy": "^7.0.0",
