@@ -1,14 +1,16 @@
-# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/goneproject_logo.png" height="80"> 
-A GPU optimized NodeJS engine.
+<div align="center">
+  <img height="160" src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo.png"><br><br>
+</div>
 
-> Perform massive parallel computations in Node.js with GPGPU.
+-----------------
+<div align="center" style="font-size: 20px">
+GPU Optimized NodeJS Environment
 
   [![NPM version][npm-image]][npm-url]
-  [![CircleCI Status][circleci-image]][circleci-url]
   [![NPM DWL Status][download-image]][download-url]
   [![Known Vulnerabilities][snyc-image]][snyc-url]
+</div>
 
-> **Status:** This project is still under development and currently does not provide a stable release.
 
 ## Supported distros
 | OS            | Version       | Status |
@@ -32,15 +34,15 @@ On Linux:
 
 ### Getting the source
 ```bash
-$ git clone --recurse-submodules -j8 https://github.com/robin-rpr/node-gpu.git
-$ cd node-gpu
+$ git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git
+$ cd engine
 $ yarn install
 $ yarn run prebuild
 ```
 
 ### NPM
 ```
-$ npm i @robin-rpr/node-gpu --save
+$ npm i gone --save
 ```
 
 ## License
@@ -49,13 +51,10 @@ $ npm i @robin-rpr/node-gpu --save
 
 
 [npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat
-[npm-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
+[npm-url]: https://www.npmjs.com/package/gone
 
-[circleci-image]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master.svg?style=svg&circle-token=1a155b19b88989f79b3df7d67f4bc5f258aac95c
-[circleci-url]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master
+[download-image]: https://img.shields.io/npm/dm/gone.svg?style=flat
+[download-url]: https://www.npmjs.com/package/gone
 
-[download-image]: https://img.shields.io/npm/dm/node-gpu.svg?style=flat
-[download-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
-
-[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg
-[snyc-url]: https://snyk.io/test/github/robin-rpr/node-gpu
+[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg?style=flat
+[snyc-url]: https://snyk.io/test/github/GONEproject/engine
