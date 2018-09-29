@@ -4,3 +4,4 @@ node_modules
 engine/src/.idea
 .DS_Store
 .ci/config/default.yml
+.vscode
