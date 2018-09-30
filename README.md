@@ -1,14 +1,14 @@
 <div align="center">
-<img height="160" src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo.png"><br/>
-<span style="color: #adafb3; font-size: 14px; font-weight: bolder">GPU OPTIMIZED NODE ENVIRONMENT</span>
-<div style="background: #2A3034; margin: 10px 0; width: fit-content; padding: 10px 20px; border-radius: 5px">
-<span style="opacity: 0.3; margin-right: 14px">$</span>git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git</div>
-
+<img height="160" src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/gone.export.png"><br/>
+  
   [![NPM version][npm-image]][npm-url]
   [![NPM DWL Status][download-image]][download-url]
   [![Known Vulnerabilities][snyc-image]][snyc-url]
-  
+### GPU OPTIMIZED NODEJS ENGINE
 </div>
+<br/>
+<hr />
+<br/>
 
 ## Supported distros
 | OS            | Version       | Status |
