@@ -1,14 +1,16 @@
 <div align="center">
-<img height="160" src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/gone.export.png"><br/>
-  
-  [![NPM version][npm-image]][npm-url]
-  [![NPM DWL Status][download-image]][download-url]
-  [![Known Vulnerabilities][snyc-image]][snyc-url]
-### GPU OPTIMIZED NODEJS ENGINE
+
+[![Logo](https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/gone.export.png)](https://github.com/GONEproject/engine)
+
+[![NPM][npm-image]][npm-url]
+[![NPM Downloads][download-image]][download-url]
+[![Known Vulnerabilities][snyc-image]][snyc-url]
+[![Docker][docker-image]][docker-url]
+[![IRC][IRC-image]][IRC-url]
+
+#### GPU OPTIMIZED NODEJS ENGINE
 </div>
-<br/>
 <hr />
-<br/>
 
 ## Supported distros
 | OS            | Version       | Status |
@@ -48,11 +50,17 @@ $ npm i gone --save
   [BSD](./LICENSE)
 
 
-[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?longCache=true&style=flat-square
 [npm-url]: https://www.npmjs.com/package/gone
 
-[download-image]: https://img.shields.io/npm/dm/gone.svg?style=flat
+[IRC-image]: https://img.shields.io/badge/IRC-%23GONEproject-lightgrey.svg?label=IRC&longCache=true&style=flat-square
+[IRC-url]: https://webchat.freenode.net/?channels=GONEproject
+
+[docker-image]: https://img.shields.io/badge/docker-goneproject/gone-3ca6ee.svg?logo=docker&label=Docker&longCache=true&style=flat-square
+[docker-url]: https://webchat.freenode.net/?channels=GONEproject
+
+[download-image]: https://img.shields.io/npm/dm/gone.svg?longCache=true&style=flat-square
 [download-url]: https://www.npmjs.com/package/gone
 
-[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg?style=flat
+[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg?longCache=true&style=flat-square
 [snyc-url]: https://snyk.io/test/github/GONEproject/engine
