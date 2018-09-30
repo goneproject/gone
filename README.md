@@ -57,7 +57,7 @@ $ npm i gone --save
 [IRC-url]: https://webchat.freenode.net/?channels=GONEproject
 
 [docker-image]: https://img.shields.io/badge/docker-goneproject/gone-3ca6ee.svg?logo=docker&label=Docker&longCache=true&style=flat-square
-[docker-url]: https://webchat.freenode.net/?channels=GONEproject
+[docker-url]: https://hub.docker.com/r/goneproject/engine/
 
 [download-image]: https://img.shields.io/npm/dm/gone.svg?longCache=true&style=flat-square
 [download-url]: https://www.npmjs.com/package/gone
