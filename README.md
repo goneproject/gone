@@ -10,7 +10,7 @@
 
 #### GPU OPTIMIZED NODEJS ENGINE
 </div>
-<hr />
+<br />
 
 ## Supported distros
 | OS            | Version       | Status |
