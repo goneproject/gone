@@ -1,5 +1,5 @@
 {
-  "name": "node-gpu",
+  "name": "gone",
   "version": "1.0.0",
   "description": "Perform massive parallel computations in Node.js with GPGPU.",
   "main": "index.js",
@@ -7,13 +7,13 @@
     "dev-babel": "rm -rf lib && babel bin -d lib",
     "dev-bootstrap": "python bootstrap.py",
     "prebuild": "python bootstrap.py && rm -rf lib && babel bin -d lib && prebuild-install || node-gyp rebuild && prebuild --t 4.6.1 --strip",
-    "setup": "python bootstrap.py && rm -rf lib && babel bin -d lib && node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/node-gpu/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config && node-gyp build",
+    "setup": "python bootstrap.py && rm -rf lib && babel bin -d lib && node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/engine/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config && node-gyp build",
     "rebuild": "node-gyp rebuild --verbose",
     "test": "standard | snazzy && tape test/*.js | faucet"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robin-rpr/node-gpu.git"
+    "url": "git+https://github.com/GONEproject/engine.git"
   },
   "keywords": [
     "GPGPU",
@@ -27,9 +27,9 @@
   "author": "Robin Roeper",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/robin-rpr/node-gpu/issues"
+    "url": "https://github.com/GONEproject/engine/issues"
   },
-  "homepage": "https://github.com/robin-rpr/node-gpu#readme",
+  "homepage": "https://github.com/GONEproject/engine#readme",
   "bundleDependencies": false,
   "dependencies": {
     "bindings": "^1.2.1",
@@ -46,6 +46,7 @@
     "bunny": "^1.0.1",
     "faucet": "0.0.1",
     "gl-conformance": "^2.0.9",
+    "jshint": "^2.9.6",
     "nan": "^2.10.0",
     "prebuild": "^7.6.0",
     "snazzy": "^7.0.0",
