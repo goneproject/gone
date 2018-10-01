@@ -4,6 +4,8 @@
 
 FROM debian:latest
 
+LABEL maintainer "robinroeper@api-spot.com"
+
 # SWITCH TO USER ROOT
 USER root
 
@@ -54,8 +56,3 @@ RUN node-gyp build
 
 # BABEL COMPILE ES6
 RUN babel bin -d lib
-
-LABEL com.circleci.preserve-entrypoint=true
-
-# RUN TESTS ON ENTRY POINT
-ENTRYPOINT yarn run test
