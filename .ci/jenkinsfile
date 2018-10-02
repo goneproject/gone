@@ -26,10 +26,12 @@ pipeline {
         steps {
             echo 'STAGE:TEST_IMAGE'
         
-            image.inside {
-                sh 'yarn run test'
+            script {
+                image.inside {
+                    sh 'yarn run test'
+                }
             }
-
+            
             archive includes: 'build/*'
 
             publishHTML target: [
