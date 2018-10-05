@@ -9,7 +9,7 @@
     "prebuild": "python bootstrap.py && rm -rf lib && babel bin -d lib && prebuild-install || node-gyp rebuild && prebuild --t 4.6.1 --strip",
     "setup": "python bootstrap.py && rm -rf lib && babel bin -d lib && node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/engine/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config && node-gyp build",
     "rebuild": "node-gyp rebuild --verbose",
-    "test": "standard | snazzy && tape test/*.js | faucet"
+    "test": "jest --config jest.json #|| standard || snazzy && tape test/*.js || faucet"
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,8 @@
     "bunny": "^1.0.1",
     "faucet": "0.0.1",
     "gl-conformance": "^2.0.9",
+    "jest": "^23.6.0",
+    "jest-html-reporter": "^2.4.2",
     "jshint": "^2.9.6",
     "nan": "^2.10.0",
     "prebuild": "^7.6.0",

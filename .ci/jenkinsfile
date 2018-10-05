@@ -1,25 +1,63 @@
+pipeline {
+  agent any  
 
-node {
-    def app
-
+  options {
+    buildDiscarder(logRotator(numToKeepStr:'20')) 
+  }
+  stages {
     stage('Clone repository') {
-        checkout scm
+        steps {
+            echo "STAGE:CLONE_REPOSITORY"
+            checkout scm
+        }
     }
-
     stage('Build image') {
-        app = docker.build("goneproject/engine", "-f .ci/docker/Dockerfile .")
+        steps {
+            echo 'STAGE:BUILD_IMAGE'
+
+            script {
+                def image = docker.build("goneproject/engine", "-f .ci/docker/Dockerfile .")
+                image.push()
+            }
+        }
     }
 
     stage('Test image') {
-        app.inside {
-            sh 'yarn run test'
+        steps {
+            echo 'STAGE:TEST_IMAGE'
+        
+            script {
+                image.inside {
+                    sh 'yarn run test'
+                }
+            }
+            
+            archive includes: 'build/*'
+
+            publishHTML target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: '.ci/reports/html',
+                reportFiles: 'jest.html',
+                reportName: 'GONEengine Report'
+            ]
         }
+        
     }
 
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+        steps {
+             echo 'STAGE:PUSH_IMAGE'
+
+            script {
+                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                    image.push("${env.BUILD_NUMBER}")
+                    image.push("latest")
+                }
+            }
         }
+       
     }
+  }
 }
