@@ -1,7 +1,0 @@
----
-# AUTOMATICALLY GENERATED CONCORUSE CI PIPELINE CONFIG
-"docker_hub":
-    "username": nodegpu
-    "email": nodegpu-buildbot@api-spot.com
-    "password": urfEn2fW4uxnb8AwvWHjhyFeCMze
-    "repository": nodegpu
