@@ -2,3 +2,5 @@
 build
 node_modules
 engine/src/.idea
+.DS_Store
+.vscode

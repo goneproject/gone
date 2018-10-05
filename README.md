@@ -1,12 +1,16 @@
-# <img src="https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/logo_dec-saveV2.png" height="80"> 
-Perform massive parallel computations in Node.js with GPGPU.
+<div align="center">
 
-  [![NPM version][npm-image]][npm-url]
-  [![CircleCI Status][circleci-image]][circleci-url]
-  [![NPM DWL Status][download-image]][download-url]
-  [![Known Vulnerabilities][snyc-image]][snyc-url]
+[![Logo](https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/gone.export.png)](https://github.com/GONEproject/engine)
 
-> **Status:** This project is still under development and currently does not provide a stable release.
+[![NPM][npm-image]][npm-url]
+[![NPM Downloads][download-image]][download-url]
+[![Known Vulnerabilities][snyc-image]][snyc-url]
+[![Docker][docker-image]][docker-url]
+[![IRC][IRC-image]][IRC-url]
+
+#### GPU OPTIMIZED NODEJS ENGINE
+</div>
+<br />
 
 ## Supported distros
 | OS            | Version       | Status |
@@ -30,15 +34,15 @@ On Linux:
 
 ### Getting the source
 ```bash
-$ git clone --recurse-submodules -j8 https://github.com/robin-rpr/node-gpu.git
-$ cd node-gpu
+$ git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git
+$ cd engine
 $ yarn install
 $ yarn run prebuild
 ```
 
 ### NPM
 ```
-$ npm i @robin-rpr/node-gpu --save
+$ npm i gone --save
 ```
 
 ## License
@@ -46,14 +50,17 @@ $ npm i @robin-rpr/node-gpu --save
   [BSD](./LICENSE)
 
 
-[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?style=flat
-[npm-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
+[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?longCache=true&style=flat-square
+[npm-url]: https://www.npmjs.com/package/gone
 
-[circleci-image]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master.svg?style=svg&circle-token=1a155b19b88989f79b3df7d67f4bc5f258aac95c
-[circleci-url]: https://circleci.com/gh/robin-rpr/node-gpu/tree/master
+[IRC-image]: https://img.shields.io/badge/IRC-%23GONEproject-lightgrey.svg?label=IRC&longCache=true&style=flat-square
+[IRC-url]: https://webchat.freenode.net/?channels=GONEproject
 
-[download-image]: https://img.shields.io/npm/dm/node-gpu.svg?style=flat
-[download-url]: https://www.npmjs.com/package/@robin-rpr/node-gpu
+[docker-image]: https://img.shields.io/badge/docker-goneproject/gone-3ca6ee.svg?logo=docker&label=Docker&longCache=true&style=flat-square
+[docker-url]: https://hub.docker.com/r/goneproject/engine/
 
-[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg
-[snyc-url]: https://snyk.io/test/github/robin-rpr/node-gpu
+[download-image]: https://img.shields.io/npm/dm/gone.svg?longCache=true&style=flat-square
+[download-url]: https://www.npmjs.com/package/gone
+
+[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg?longCache=true&style=flat-square
+[snyc-url]: https://snyk.io/test/github/GONEproject/engine
