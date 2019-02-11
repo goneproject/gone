@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Logo](https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/gone.export.png)](https://github.com/GONEproject/engine)
+[![Logo](https://raw.githubusercontent.com/GONEproject/engine/master/misc/img/banner.export.png)](https://github.com/GONEproject/engine)
 
 [![NPM][npm-image]][npm-url]
 [![NPM Downloads][download-image]][download-url]
