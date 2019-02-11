@@ -6,7 +6,7 @@
 [![Docker][docker-image]][docker-url]
 [![IRC][IRC-image]][IRC-url]
 
-
+</div>
 
 ## Supported distros
 | OS            | Version       | Status |
@@ -27,9 +27,6 @@ On Linux:
 - Required libraries: g++-6-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, xserver-xorg-dev, libxext-dev, libxi-dev, libpci-dev
 
 ## Getting the source
-
-</div>
-
 ```bash
 $ git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git
 $ cd engine
@@ -37,12 +34,7 @@ $ yarn install
 $ yarn run prebuild
 ```
 
-<div align="center">
-
 ### Production Library
-
-</div>
-
 ```
 $ yarn add gone
 ```
