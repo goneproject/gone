@@ -1,16 +1,12 @@
 <div align="center">
 
-[![Logo](https://raw.githubusercontent.com/robin-rpr/node-gpu/master/misc/img/gone.export.png)](https://github.com/GONEproject/engine)
+[![Logo](https://raw.githubusercontent.com/GONEproject/engine/master/misc/img/banner.export.png)](https://github.com/GONEproject/engine)
 
-[![NPM][npm-image]][npm-url]
-[![NPM Downloads][download-image]][download-url]
 [![Known Vulnerabilities][snyc-image]][snyc-url]
 [![Docker][docker-image]][docker-url]
 [![IRC][IRC-image]][IRC-url]
 
-#### GPU OPTIMIZED NODEJS ENGINE
 </div>
-<br />
 
 ## Supported distros
 | OS            | Version       | Status |
@@ -30,9 +26,7 @@ On all platforms:
 On Linux:
 - Required libraries: g++-6-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, xserver-xorg-dev, libxext-dev, libxi-dev, libpci-dev
 
-## Development Setup
-
-### Getting the source
+## Getting the source
 ```bash
 $ git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git
 $ cd engine
@@ -40,9 +34,9 @@ $ yarn install
 $ yarn run prebuild
 ```
 
-### NPM
+### Production Library
 ```
-$ npm i gone --save
+$ yarn add gone
 ```
 
 ## License
@@ -50,17 +44,11 @@ $ npm i gone --save
   [BSD](./LICENSE)
 
 
-[npm-image]: https://img.shields.io/npm/v/node-gpu.svg?longCache=true&style=flat-square
-[npm-url]: https://www.npmjs.com/package/gone
-
 [IRC-image]: https://img.shields.io/badge/IRC-%23GONEproject-lightgrey.svg?label=IRC&longCache=true&style=flat-square
 [IRC-url]: https://webchat.freenode.net/?channels=GONEproject
 
 [docker-image]: https://img.shields.io/badge/docker-goneproject/gone-3ca6ee.svg?logo=docker&label=Docker&longCache=true&style=flat-square
 [docker-url]: https://hub.docker.com/r/goneproject/engine/
 
-[download-image]: https://img.shields.io/npm/dm/gone.svg?longCache=true&style=flat-square
-[download-url]: https://www.npmjs.com/package/gone
-
-[snyc-image]: https://snyk.io/test/github/robin-rpr/node-gpu/badge.svg?longCache=true&style=flat-square
+[snyc-image]: https://snyk.io/test/github/GONEproject/engine/badge.svg?longCache=true&style=flat-square
 [snyc-url]: https://snyk.io/test/github/GONEproject/engine
