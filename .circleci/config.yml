@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Bootstrap Container
           command: |
-            apt install sudo
+            apt-get install sudo
 
       - run:
           name: Update Packagelist
