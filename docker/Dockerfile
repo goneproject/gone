@@ -43,6 +43,8 @@ RUN gclient sync
 RUN git checkout master
 RUN ./build/install-build-deps.sh --syms --lib32 --arm --chromeos-fonts --nacl
 RUN GYP_GENERATORS=ninja gclient runhooks
+RUN ls -la
+RUN pwd
 RUN mkdir -p out/Debug
 RUN ninja -j 10 -k1 -C out/Debug
 
