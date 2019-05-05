@@ -9,6 +9,11 @@ jobs:
           docker_layer_caching: true
 
       - run:
+          name: Bootstrap Container
+          command: |
+            apt install sudo
+
+      - run:
           name: Update Packagelist
           command: |
             sudo apt-get update
