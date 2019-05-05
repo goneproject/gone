@@ -35,8 +35,8 @@ jobs:
           name: Install Docker CE
           command: |
             set -x
-            sudo apt-get update
-            sudo apt-get install docker-ce
+            sudo apt-get update -y
+            sudo apt-get install docker-ce -y --allow-unauthenticated
 
       - run:
           name: Build Image
