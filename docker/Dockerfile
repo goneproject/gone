@@ -48,6 +48,7 @@ RUN ./build/install-build-deps.sh --syms --lib32 --arm --chromeos-fonts --nacl
 RUN GYP_GENERATORS=ninja gclient runhooks
 RUN gn gen out/Debug
 RUN ninja -j 10 -k1 -C out/Debug
+RUN ls -la out/Debug
 
 # CONFIGURE NODE-GYP
 RUN node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/goneproject/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config
