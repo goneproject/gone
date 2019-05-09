@@ -31,6 +31,9 @@ WORKDIR $APP_PATH
 # INSTALL NODE-GPU DEPENDENCIES
 RUN apt-get install -y g++-6-arm-linux-gnueabihf gcc-arm-linux-gnueabihf gcc-arm-linux-gnueabihf xserver-xorg-dev libxext-dev libxi-dev libpci-dev
 
+# INSTALL NPM DEPENDENCIES
+RUN npm install -g node-gyp
+
 # EXPORT DEPOT_TOOLS
 ENV PATH="${PATH}:../depot_tools"
 
@@ -44,7 +47,6 @@ RUN gclient sync
 RUN ./build/install-build-deps.sh --syms --lib32 --arm --chromeos-fonts --nacl
 RUN GYP_GENERATORS=ninja gclient runhooks
 RUN gn gen out/Debug
-# ninja -C out/Debug
 RUN ninja -j 10 -k1 -C out/Debug
 
 # CONFIGURE NODE-GYP
