@@ -4,6 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:stretch
+    parallelism: 4
     steps:
       - setup_remote_docker:
           docker_layer_caching: true
