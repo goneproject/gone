@@ -38,9 +38,10 @@ RUN npm install -g node-gyp
 ENV PATH="${PATH}:../depot_tools"
 
 # BOOTSTRAP ANGLE
-WORKDIR engine/submodules/angle
+WORKDIR submodules/angle
 RUN echo $PATH
 RUN echo $PWD
+RUN pwd
 RUN python scripts/bootstrap.py
 RUN gclient sync
 # RUN git checkout master
@@ -51,7 +52,7 @@ RUN ninja -j 10 -k1 -C out/Debug
 RUN ls -la out/Debug
 
 # CONFIGURE NODE-GYP
-RUN node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/goneproject/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config
+RUN node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=submodules/angle --Dpkg-config=/usr/bin/pkg-config
 
 # BUILD NODE-GPU
 RUN node-gyp build
