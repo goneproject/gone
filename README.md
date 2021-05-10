@@ -1,6 +1,8 @@
 <div align="center">
 
-<svg src="misc/img/banner.svg" height="200">
+<img src="https://github.com/goneproject/gone/blob/master/misc/img/gone-logo.svg" height="90">
+
+### Perform massive parallel computations in Node.js with GPGPU
 
 [![Known Vulnerabilities][snyc-image]][snyc-url]
 [![Docker][docker-image]][docker-url]
