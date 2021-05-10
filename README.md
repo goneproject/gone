@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Logo](https://raw.githubusercontent.com/GONEproject/engine/master/misc/img/banner.export.png)](https://github.com/GONEproject/engine)
+<svg src="misc/img/banner.svg" height="200">
 
 [![Known Vulnerabilities][snyc-image]][snyc-url]
 [![Docker][docker-image]][docker-url]
