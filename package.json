@@ -9,7 +9,9 @@
     "example": "echo \"Usage is: npm run example:EXAMPLE_NAME\"; exit 1",
     "example:es6_to_glsl": "nodemon example/es6_to_glsl",
     "example:exec_glsl": "nodemon example/exec_glsl",
-    "test": "jest"
+    "test": "jest",
+    "clean": "git clean -xdf",
+    "clean:dryrun": "git clean -xdn"
   },
   "repository": {
     "type": "git",
