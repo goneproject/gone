@@ -1,7 +1,3 @@
-'use strict'
-
-// TODO: FILE IS TOO BIG => Outsource!
-
 let bits = require('bit-twiddle')
 let nativeGL = require('bindings')('webgl')
 let tokenize = require('glsl-tokenizer/string')

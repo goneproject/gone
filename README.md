@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/goneproject/gone/blob/master/misc/img/gone-logo.svg" height="90">
+<img src="https://github.com/goneproject/gone/blob/master/misc/img/gone_readme.svg" height="90">
 
 ### Perform massive parallel computations in Node.js with GPGPU
 
@@ -21,24 +21,20 @@
 ## Installation
 
 ### Required Tools
-On all platforms:
-- Yarn for dependency management. Download can be found [here.](https://yarnpkg.com/en/docs/install)
-- We use Git for version control (version 2.11.0 or later.)
-
 On Linux:
 - Required libraries: g++-6-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, gcc-arm-linux-gnueabihf, xserver-xorg-dev, libxext-dev, libxi-dev, libpci-dev
 
 ## Getting the source
 ```bash
-$ git clone --recurse-submodules -j8 https://github.com/GONEproject/engine.git
-$ cd engine
-$ yarn install
-$ yarn run prebuild
+$ git clone --recurse-submodules -j8 https://github.com/goneproject/gone.git
+$ cd gone
+$ npm i
 ```
 
-### Production Library
+### NPM Package
+Install the NPM Package
 ```
-$ yarn add gone
+$ npm i gone --save
 ```
 
 ## License
@@ -46,11 +42,11 @@ $ yarn add gone
   [BSD](./LICENSE)
 
 
-[IRC-image]: https://img.shields.io/badge/IRC-%23GONEproject-lightgrey.svg?label=IRC&longCache=true&style=flat-square
-[IRC-url]: https://webchat.freenode.net/?channels=GONEproject
+[IRC-image]: https://img.shields.io/badge/IRC-%23goneproject-lightgrey.svg?label=IRC&longCache=true&style=flat-square
+[IRC-url]: https://webchat.freenode.net/?channels=goneproject
 
 [docker-image]: https://img.shields.io/badge/docker-goneproject/gone-3ca6ee.svg?logo=docker&label=Docker&longCache=true&style=flat-square
-[docker-url]: https://hub.docker.com/r/goneproject/engine/
+[docker-url]: https://hub.docker.com/r/goneproject/gone/
 
-[snyc-image]: https://snyk.io/test/github/GONEproject/engine/badge.svg?longCache=true&style=flat-square
-[snyc-url]: https://snyk.io/test/github/GONEproject/engine
+[snyc-image]: https://snyk.io/test/github/goneproject/gone/badge.svg?longCache=true&style=flat-square
+[snyc-url]: https://snyk.io/test/github/goneproject/gone

@@ -1,9 +1,9 @@
-[submodule "submodules/angle"]
-	path = submodules/angle
+[submodule "deps/angle"]
+	path = deps/angle
 	url = https://chromium.googlesource.com/angle/angle
-[submodule "submodules/depot_tools"]
-	path = submodules/depot_tools
+[submodule "deps/depot_tools"]
+	path = deps/depot_tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
-[submodule "submodules/pkg-config"]
-	path = submodules/pkg-config
+[submodule "deps/pkg-config"]
+	path = deps/pkg-config
 	url = https://anongit.freedesktop.org/git/pkg-config.git

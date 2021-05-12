@@ -1,5 +1,5 @@
 /*
-OES_texture_float_linear.polyfill.js
+OES_texture_float_linear.ts
 Created on: 27. June 2013
 Author: @evanw
 Github: https://github.com/evanw/OES_texture_float_linear-polyfill

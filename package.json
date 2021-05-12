@@ -4,16 +4,13 @@
   "description": "Perform massive parallel computations in Node.js with GPGPU.",
   "main": "index.js",
   "scripts": {
-    "dev-babel": "rm -rf lib && babel bin -d lib",
-    "dev-bootstrap": "python bootstrap.py",
-    "prebuild": "python bootstrap.py && rm -rf lib && babel bin -d lib && prebuild-install || node-gyp rebuild && prebuild --t 4.6.1 --strip",
-    "setup": "python bootstrap.py && rm -rf lib && babel bin -d lib && node-gyp configure --use_x11=1 --use_ozone=1 --chromeos=0 --angle_path=/home/git/engine/engine/submodules/angle -- -Dpkg-config=/usr/bin/pkg-config && node-gyp build",
-    "rebuild": "node-gyp rebuild --verbose",
-    "test": "jest --config jest.json #|| standard || snazzy && tape test/*.js || faucet"
+    "build": "tsc",
+    "postinstall": "python scripts/bootstrap.py",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GONEproject/engine.git"
+    "url": "git+https://github.com/goneproject/gone.git"
   },
   "keywords": [
     "GPGPU",
@@ -27,9 +24,9 @@
   "author": "Robin Roeper",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GONEproject/engine/issues"
+    "url": "https://github.com/goneproject/gone/issues"
   },
-  "homepage": "https://github.com/GONEproject/engine#readme",
+  "homepage": "https://github.com/goneproject/gone#readme",
   "bundleDependencies": false,
   "dependencies": {
     "bindings": "^1.2.1",
@@ -39,6 +36,7 @@
     "prebuild-install": "^2.1.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "angle-normals": "^1.0.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
@@ -53,13 +51,15 @@
     "prebuild": "^7.6.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
-    "tape": "^4.7.0"
+    "tape": "^4.7.0",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.2.4"
   },
   "directories": {
     "test": "test"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=14.0.0"
   },
   "gypfile": true
 }

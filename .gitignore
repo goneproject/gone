@@ -1,4 +1,6 @@
-build
+dist
 node_modules
-engine/src/.idea
+.idea
+.vscode
 .DS_Store
+.config.gypi
