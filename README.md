@@ -32,7 +32,7 @@ $ npm i
 ```
 
 ### NPM Package
-Install the NPM Package
+To install via npm, run the following command
 ```
 $ npm i gone --save
 ```
