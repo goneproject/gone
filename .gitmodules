@@ -7,3 +7,6 @@
 [submodule "third_party/pkg-config"]
 	path = third_party/pkg-config
 	url = https://anongit.freedesktop.org/git/pkg-config.git
+[submodule "third_party/gn"]
+	path = third_party/gn
+	url = https://gn.googlesource.com/gn

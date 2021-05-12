@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    gclient_cmd = 'cd $PWD/../../engine/submodules/gn && ../depot_tools/gclient sync'
+    gclient_cmd = 'cd $PWD/../third_party/gn && ../depot_tools/gclient sync'
     try:
         rc = subprocess.call(gclient_cmd, shell=True)
     except OSError:

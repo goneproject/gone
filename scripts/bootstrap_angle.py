@@ -14,7 +14,7 @@ import sys
 
 
 def main():
-    cmd = ('cd $PWD/../../engine/submodules/angle '
+    cmd = ('cd $PWD/../third_party/angle '
             '&& ./../depot_tools/gclient config --name change2dot --unmanaged https://chromium.googlesource.com/angle/angle.git '
             '&& ./../depot_tools/gn gen out/Debug')
     try:
@@ -32,8 +32,6 @@ def main():
 
     with open('.gclient', 'w') as gclient_file:
         gclient_file.write(content.replace('change2dot', '.'))
-
-    print 'bootstrapped angle'
 
 if __name__ == '__main__':
     main()

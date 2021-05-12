@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "postinstall": "python scripts/bootstrap.py",
+    "postinstall": "python scripts/bootstrap_all.py",
+    "example": "echo \"Usage is: npm run example:EXAMPLE_NAME\"; exit 1",
+    "example:es6_to_glsl": "nodemon example/es6_to_glsl",
+    "example:exec_glsl": "nodemon example/exec_glsl",
     "test": "jest"
   },
   "repository": {
