@@ -6,8 +6,7 @@ import sys
 
 def main():
     gclient_cmd = ('cd third_party/gn '
-                   '&& python build/gen.py')
-
+                   '&& ninja -C out')
     try:
         rc = subprocess.call(gclient_cmd, shell=True)
     except OSError:
@@ -18,7 +17,7 @@ def main():
         print('failed command: "%s"' % gclient_cmd)
         sys.exit(1)
 
-    print('fetched gn dependencies')
+    print('[successfully build gn]')
 
 if __name__ == '__main__':
     main()

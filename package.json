@@ -4,11 +4,13 @@
   "description": "Perform massive parallel computations in Node.js with GPGPU.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "postinstall": "python scripts/bootstrap_all.py",
+    "build": "echo \"Usage is: npm run build:TARGET_NAME\"; exit 1",
+    "build:debug": "scripts/build.sh out/Debug master",
+    "build:release": "scripts/build.sh out/Debug master",
+    "postinstall": "scripts/bootstrap.sh",
     "example": "echo \"Usage is: npm run example:EXAMPLE_NAME\"; exit 1",
-    "example:es6_to_glsl": "nodemon example/es6_to_glsl",
-    "example:exec_glsl": "nodemon example/exec_glsl",
+    "example:es6_to_glsl": "node example/es6_to_glsl/app.js",
+    "example:exec_glsl": "node example/exec_glsl/app.js",
     "test": "jest",
     "clean": "git clean -xdf",
     "clean:dryrun": "git clean -xdn"
