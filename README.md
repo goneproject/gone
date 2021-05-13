@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/goneproject/gone/blob/master/misc/img/gone_readme.svg" height="90">
+<img src="assets/gone_readme.svg" height="90">
 
 ### Perform massive parallel computations in Node.js with GPGPU
 
